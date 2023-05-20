@@ -8,6 +8,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ImagenController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\PerfilController;
 use App\Http\Controllers\RegisterController;
 
 /*
@@ -29,6 +30,9 @@ Route::get('/login', [LoginController::class,'index'])->name('login');
 Route::post('/login', [LoginController::class,'store']);
 Route::post('/logout',[LogoutController::class,'store'])->name('logout');
 
+Route::get('/editar-perfil',[PerfilController::class,'index'])->name('perfil.index');
+Route::post('/editar-perfil',[PerfilController::class,'store'])->name('perfil.store');
+
 Route::get('/register', [RegisterController::class,'index'])->name('register');
 Route::post('/register',[RegisterController::class,'store']);
 
@@ -44,3 +48,4 @@ Route::post('/images',[ImageController::class,'store'])->name('images.store');
 Route::delete('/post/{post}',[PostController::class,'destroy'])->name('posts.destroy');
 Route::post('/posts/{post}/likes',[LikeController::class,'store'])->name('posts.like.store');
 Route::delete('/posts/{post}/likes',[LikeController::class,'destroy'])->name('posts.like.destroy');
+

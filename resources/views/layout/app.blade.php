@@ -21,7 +21,7 @@
                             </svg>
                             Crear
                         </a>
-                        <a class="font-bold text-gray-600 text-sm uppercase" href="{{ route('login') }}">
+                        <a class="font-bold text-gray-600 text-sm uppercase" href="{{ route('posts.index', auth()->user()->username) }}">
                             Hola : <span class="font-normal"> {{ auth()->user()->username }}</span>
                         </a>
                         <form action="{{ route('logout') }}" method="POST">
