@@ -31,4 +31,5 @@ class PerfilController extends Controller
         $usuario->save();
         return redirect()->route('posts.index', $usuario->username );
     }
+
 }

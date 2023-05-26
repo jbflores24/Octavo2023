@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\FollowerController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ImageController;
@@ -22,9 +24,7 @@ use App\Http\Controllers\RegisterController;
 |
 */
 
-Route::get('/', function () {
-    return view('inicio');
-});
+Route::get('/', HomeController::class)->name('home');
 
 Route::get('/login', [LoginController::class,'index'])->name('login');
 Route::post('/login', [LoginController::class,'store']);
@@ -49,3 +49,5 @@ Route::delete('/post/{post}',[PostController::class,'destroy'])->name('posts.des
 Route::post('/posts/{post}/likes',[LikeController::class,'store'])->name('posts.like.store');
 Route::delete('/posts/{post}/likes',[LikeController::class,'destroy'])->name('posts.like.destroy');
 
+Route::post('/{user:username}/follow',[FollowerController::class,'store'])->name('users.follow');
+Route::delete('/{user:username}/unfollow',[FollowerController::class,'destroy'])->name('users.unfollow');
